@@ -24,8 +24,10 @@ def setupInit():
     cls()
     print("PyKern Setup")
     print("The Terminal OS made on python for fun!")
-    print("Choose install directory:")
-    installdir = input()
+    print("Choosing a name for your install directory has been deprecated. It is set to pykern")
+    print("Press ENTER to continue")
+    input()
+    installdir = "pykern"
     print("[-] Creating config file...")
     configfile = open("config.pykern", "w")
     configfile.write(installdir)
