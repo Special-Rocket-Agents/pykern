@@ -1,4 +1,4 @@
-# Introductory
+# Introductory ([Skip](https://github.com/Special-Rocket-Agents/pykern/edit/main/README.md#pykern))
 > Skip this section if you need to get to the juicy stuff quickly and directlry
 
 Alright, so most of SRA's [repositories](https://github.com/orgs/Special-Rocket-Agents/repositories) consist of simulated kernels that we write for fun; 
@@ -42,6 +42,6 @@ With the license that it was assigned, I believe it is safe to revive this proje
 # Pykern
 Pykern simulates what would be a command-line operating system if it was written in Python.
 
-It features a juicy setup process and a really juicy package manager called SIP (reportedly stands for **S**uper **I**nstaller **P**ackager)
+It features a juicy setup process and a really juicy package manager called SIP (reportedly stands for **S**uper **I**nstaller **P**ackage)
 
-Installation is currently not documented but it will very soon be. (On wiki)
+[Everything that needs to be mentioned is inside the wiki](https://github.com/Special-Rocket-Agents/pykern/wiki). Enjoy!
