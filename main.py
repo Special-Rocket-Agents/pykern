@@ -23,7 +23,19 @@ su = False
 
 datafolder = Path.cwd()
 
+############ COLOR ALIASING ############
+# To make coloring easier #
+yellow = Fore.YELLOW
+red = Fore.RED
+blue = Fore.BLUE
+cyan = Fore.CYAN
+bold = Style.BRIGHT
+normal = Style.NORMAL
+green = Fore.GREEN
+lgreen = Fore.LIGHTGREEN_EX
+reset = Fore.RESET
 
+########################################
 output = ""
 Fore.LIGHTBLUE_EX
 THISISLIGHTYELLOW = Fore.LIGHTYELLOW_EX # to make the icon readable
@@ -112,7 +124,6 @@ def pykern():
                 print(error)
 
 def boot():
-
     colorama.init(autoreset=True)
 
     global osdir
@@ -120,25 +131,28 @@ def boot():
     global packagecount
     from setup import setupInit
     cls()
+    print(bold + "Pykern Bootloader" + normal)
     if not exists("config.pykern"):
         setupInit()
     print("[-] Connecting installdir to PyKern instance")
     f = open("config.pykern", "r")
     osdir = f.readlines()[0]
     f.close()
-    print("[x] Connected to:  " + osdir + ".")
-    print("[-] Loading user")
+    print(f"{green}[x]{reset} Connected to:  " + osdir + ".")
+    print(f"{blue}[-]{reset} Loading user")
     uf = open(osdir + "/user/.curuser", "r")
     username = uf.readline().lstrip().rstrip()
     uf.close()
-    print("[x] Connected to the user: " + username)
-    print("[-] Loading the packages")
+    print(f"{green}[x]{reset} Connected to the user: " + username)
+    print(f"{blue}[-]{reset} Loading the packages")
     pkgdir = osdir + "/user/" + username + "/pkg"
     for path in os.listdir(pkgdir):
         if os.path.isfile(os.path.join(pkgdir, path)):
-            print("[-] - Loaded " + path.replace(".py", ""))
+            print(f"{cyan}[-]{reset} - Loaded " + bold + path.replace(".py", "") + normal)
             packagecount += 1
-    print("[x] Done, loaded: " + str(packagecount) + " package(s).")
+    print(f"{green}{bold}[x]{normal}{reset} {lgreen}Done,{reset} loaded: " + bold + str(packagecount) + normal + " package(s).")
+    print(f"{bold}{red}If this is your second time seeing this screen, it's a trivial bug I can't fix{reset}{normal}")
+    time.sleep(1.2)
     cls()
     pykern()
 boot()
