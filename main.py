@@ -68,7 +68,7 @@ def pykern():
             "The repository's wiki has some great info, check it out later.",
             "MOTDs will be added from time to time without notice, check back later."
         ]
-        print("Welcome to PyKern")
+        print(Style.BRIGHT + "Welcome to PyKern" + Style.RESET_ALL)
         print(motd[random.randint(0, 3)])
     while (True):
         if su == True:
