@@ -1,5 +1,5 @@
 # Introductory ([Skip](https://github.com/Special-Rocket-Agents/pykern/edit/main/README.md#pykern))
-> Skip this section if you need to get to the juicy stuff quickly and directlry
+> Skip this section if you need to get to the juicy stuff quickly and directly
 
 Alright, so most of SRA's [repositories](https://github.com/orgs/Special-Rocket-Agents/repositories) consist of simulated kernels that we write for fun; 
 
