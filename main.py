@@ -8,6 +8,8 @@ import importlib.util
 from pathlib import Path
 import re
 
+import colorama
+
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
 
@@ -111,7 +113,7 @@ def pykern():
 
 def boot():
 
-    init()
+    colorama.init(autoreset=True)
 
     global osdir
     global username
