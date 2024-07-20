@@ -7,12 +7,18 @@ from colorama import Fore, Back, Style
 import importlib.util
 from pathlib import Path
 import re
+## Sys is used for arguments. Nothing else
+import sys
 
 import colorama
 
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
-
+try:
+    args = str(sys.argv[1])
+except:
+    args = None
+    pass
 osdir = ""
 username = ""
 packagecount = 0
@@ -139,6 +145,8 @@ def boot():
     from setup import setupInit
     cls()
     print(bold + "Pykern Bootloader" + normal)
+    if args == "debug":
+        print(f"{bold}{red}[!] You have enabled the debug mode.{reset}{normal}")
     if not exists("config.pykern"):
         setupInit()
     print("[-] Connecting installdir to PyKern instance")
@@ -165,6 +173,8 @@ def boot():
     print(f"{green}{bold}[x]{normal}{reset} {lgreen}Done,{reset} loaded: " + bold + str(packagecount) + normal + " package(s).")
     print(f"{bold}{red}If this is your second time seeing this screen, it's a trivial bug I can't fix{reset}{normal}")
     time.sleep(1.2)
+    if args == "debug":
+        input()
     cls()
     pykern()
 boot()
