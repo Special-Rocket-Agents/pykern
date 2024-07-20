@@ -122,7 +122,14 @@ def pykern():
             else:
                 print(Fore.LIGHTRED_EX + "Failed to find command \"" + cmd + "\"" + Style.RESET_ALL + ":")
                 print(error)
-
+def crit_error(reason):
+    """
+    The reason that this damn function exists is to avoid repetitive try/except statements.
+    
+    I'm essentially lying, this is for customized text and repetitive printing.
+    """
+    print(f"{bold}{red}[ERROR]{normal}{reset} {reason}")
+    exit()
 def boot():
     colorama.init(autoreset=True)
 
@@ -138,11 +145,16 @@ def boot():
     f = open("config.pykern", "r")
     osdir = f.readlines()[0]
     f.close()
+    if osdir != "pykern":
+        crit_error(f"Configuration file does not match ({osdir}). Rename {bold}config.pykern{normal} to {yellow}pykern{reset}")
     print(f"{green}[x]{reset} Connected to:  " + osdir + ".")
     print(f"{blue}[-]{reset} Loading user")
-    uf = open(osdir + "/user/.curuser", "r")
-    username = uf.readline().lstrip().rstrip()
-    uf.close()
+    try:
+        uf = open(osdir + "/user/.curuser", "r")
+        username = uf.readline().lstrip().rstrip()
+        uf.close()
+    except:
+        crit_error("Could not load current user, Delete the configuration file and the Pykern directory to reinstall.")
     print(f"{green}[x]{reset} Connected to the user: " + username)
     print(f"{blue}[-]{reset} Loading the packages")
     pkgdir = osdir + "/user/" + username + "/pkg"
