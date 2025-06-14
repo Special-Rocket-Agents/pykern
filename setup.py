@@ -2,7 +2,6 @@ import os
 from os.path import exists
 import time
 import urllib.request
-# debug printing added
 
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
@@ -23,8 +22,8 @@ def setupInit():
     import main
     cls()
     print("PyKern Setup")
-    print("The Terminal OS made on python for fun!")
-    print("Choosing a name for your install directory has been deprecated. It is set to pykern")
+    print("The fluff psuedo-OS made in Python!")
+    print("Install directory will be pykern.")
     print("Press ENTER to continue")
     input()
     installdir = "pykern"
